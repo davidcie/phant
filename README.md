@@ -6,6 +6,25 @@ the [Internet of Things](http://en.wikipedia.org/wiki/Internet_of_Things).  phan
 
 If you would like to learn more about phant, please visit [phant.io](http://phant.io) for usage & API docs.
 
+## Changes
+
+### Node.js compatibility upgrade
+
+Even though the docs mention that phant "requires the latest version of node.js", they really mean "up to v4.6.2" which is getting a bit long in the tooth in 2017. This fork pulls some changes from [stoto's repo](https://github.com/stoto/phant) that should enable phant to run under a newer version of node. Tested up to v7.7.2.
+
+### Timestamp submission
+
+
+```
+```
+
+Alternatively you can submit six digits separated by commas. Bear in mind Javascript months are zero-indexed and that this will get you a date *in your server's timezone*, not UTC:
+
+```
+```
+
+If there's interest I might add a special path that does a `new Date(Date.UTC(y,m,d,h,m,s))` if submitted string contains six numbers separated by five commas. Perhaps looks a little easier on the eyes than url-encoded colons.
+
 ## Getting Started
 
 ### Vagrant
