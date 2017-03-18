@@ -14,13 +14,16 @@ Even though the docs mention that phant "requires the latest version of node.js"
 
 ### Timestamp submission
 
+You will have the ability to submit timestamps, which is useful if you're thinking of storing some data on your IoT device and batch submitting it to save energy as discussed [here](https://github.com/sparkfun/phant/issues/203). The backend does a `new Date(<your submitted date>)` which means any Javascript Date compatible date will do. ISO formatting (with colons url-encoded as `%3A`) is the recommended way:
 
 ```
+<usual GET request URL>&timestamp=2017-03-10T13%3A14%3A56.000Z
 ```
 
 Alternatively you can submit six digits separated by commas. Bear in mind Javascript months are zero-indexed and that this will get you a date *in your server's timezone*, not UTC:
 
 ```
+<usual GET request URL>&timestamp=2017,02,10,13,14,15
 ```
 
 If there's interest I might add a special path that does a `new Date(Date.UTC(y,m,d,h,m,s))` if submitted string contains six numbers separated by five commas. Perhaps looks a little easier on the eyes than url-encoded colons.
