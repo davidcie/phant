@@ -7,3 +7,4 @@ npm-debug.log
 /phant_streams/
 .DS_Store
 .vagrant
+package-lock.json
